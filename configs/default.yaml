@@ -1,0 +1,30 @@
+# Paths
+csv_dir: data/csv          # folder of per-record CSVs, e.g. TRM107-RHC1.csv
+out_root: outputs          # results go to outputs/denoise_imu or outputs/denoise_noimu
+
+# Signal and windowing
+fs: 500                    # sampling rate (Hz)
+window_sec: 5.0            # window length (s); train stride = window/4, eval stride = window
+
+# Training
+batch_size: 32
+epochs: 30
+lr: 3.0e-4
+weight_decay: 1.0e-4
+base_ch: 32
+num_workers: 2
+seed: 42
+
+# Artifact model / ablation
+use_imu: true              # false feeds zeros in place of the ACC channels (ablation)
+snr_db_range: [0.0, 12.0]
+eval_corruption_mode: eval # "eval" uses a different nonlinearity than training
+
+# Columns
+acc_cols: [patch_ACC_lat, patch_ACC_hf, patch_ACC_dv]
+target_col: ECG_lead_I
+
+# Patient-level splits (no patient appears in more than one split)
+train_patients: [TRM128, TRM158, TRM159, TRM160, TRM163, TRM164, TRM172, TRM174]
+val_patients:   [TRM145, TRM148]
+test_patients:  [TRM107, TRM127, TRM170]

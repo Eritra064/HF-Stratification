@@ -1,0 +1,16 @@
+# data and results (never commit patient data)
+data/
+outputs/
+*.pth
+*.pt
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Notebooks / OS
+.ipynb_checkpoints/
+.DS_Store

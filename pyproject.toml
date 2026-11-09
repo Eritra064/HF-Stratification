@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hf-stratification"
+version = "0.1.0"
+description = "IMU-referenced motion-artifact removal for wrist-like Lead I ECG to detect heart condition"
+requires-python = ">=3.9"
+dependencies = ["numpy", "pandas", "scipy", "scikit-learn", "torch", "pyyaml", "matplotlib"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
